@@ -15,7 +15,7 @@ kv_namespaces = [
 # the url of your logto service. if you are using logto cloud it may look like https://[your_tenant].logto.app
 VITE_LOGTO_ENDPOINT = "https://auth.minersonline.uk"
 # the appid of your CLIENT SPA application
-VITE_LOGTO_APPID = "9snd2p2jevrba36fkwx75"
+VITE_LOGTO_APPID = "034cz7o29wpp9cafbfbe2"
 # the logto core resource, do not change <= this is only temporary
 VITE_LOGTO_CORE_RESOURCE = "https://default.logto.app/api"
 # the resources the user should have access to use the dashboard. Should be in array format. e.g: '["https://default.logto.app/api", "https://myresouce.logto.app"]'
