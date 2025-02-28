@@ -1,13 +1,53 @@
-name = "mxs-myid"
+name = "logto-account-dashboard"
 compatibility_flags = [ "nodejs_compat" ]
 compatibility_date = "2024-03-04"
 pages_build_output_dir = "./dist"
 
 kv_namespaces = [
-	{ binding = "MfaStatus", id = "52c4f6065c8846c89ab71cb40419e342" },
-	{ binding = "LogtoAccessToken", id = "ca2385bd7474479cb34d8e661e9c6194" },
-	{ binding = "UsernameChangeTimelimit", id = "102d5b07a70543f193e11f8bd42d8dfd" }
+	{ binding = "MfaStatus", id = "4b443ec1df2448a9bfead1a596b0f890" },
+	{ binding = "LogtoAccessToken", id = "adcda45b167e480f90b771865e36f4c0" },
+	{ binding = "UsernameChangeTimelimit", id = "7d4b7abc201d48aa80f20683e82958d1" }
 ]
+
+[vars]
+### WEB CLIENT VARIABLES
+## All the required logto values
+# the url of your logto service. if you are using logto cloud it may look like https://[your_tenant].logto.app
+VITE_LOGTO_ENDPOINT = "https://auth.minersonline.uk"
+# the appid of your CLIENT SPA application
+VITE_LOGTO_APPID = "9snd2p2jevrba36fkwx75"
+# the logto core resource, do not change <= this is only temporary
+VITE_LOGTO_CORE_RESOURCE = "https://default.logto.app/api"
+# the resources the user should have access to use the dashboard. Should be in array format. e.g: '["https://default.logto.app/api", "https://myresouce.logto.app"]'
+VITE_LOGTO_RESOURCES = '["https://default.logto.app/api"]' # <= do not change (temporary)
+
+## Extra endpoints
+# the url that the dashboard is served from
+VITE_ROOT = "https://account.minersonline.uk"
+# the endpoint of a matomo installation. if omitted matomo tracking will be disabled
+# VITE_MATOMO_ENDPOINT = 
+# VITE_MATOMO_SITE_ID = 
+
+## Extra customisable options
+# the email in the footer of the dashboard
+VITE_SUPPORT_EMAIL = ""
+# the url that users can visit to view the privacy policy/terms of service of your brand. needs to be a full url
+VITE_LEGAL_URL = "https://github.com/miners-online/.github/blob/main/docs/legal/TERMS_OF_SERVICE.md"
+
+### WORKER VARIABLES
+## Required Logto values
+# THESE SHOULD NOT BE SET IN THE WRANGLER.TOML!!
+# Please set these values using the wrangler cli: https://developers.cloudflare.com/workers/wrangler/commands/#secret
+# LOGTO_APP_ID = Required - Set via wrangler cli!
+# LOGTO_APP_SECRET = Required - Set via wrangler cli!
+# the url of your logto service. if you are using logto cloud it may look like https://[your_tenant].logto.app
+LOGTO_DOMAIN = "https://auth.minersonline.uk"
+# the default resource of your logto application. If you are on a self hosted instance it will be "https://default.logto.app/api", if you are using logto cloud it will look someting like "https://v12345.logto.app/api"
+LOGTO_DEFAULT_RESOURCE = "https://default.logto.app/api"
+
+# settings for avatar nsfw checking. use in conjunction with https://github.com/t2vee/nsfwjs-avatar-service
+AVATAR_API = ""
+ENABLE_NSFW_CHECK = 0
 
 [placement]
 mode = "smart"
